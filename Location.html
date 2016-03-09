@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<style >
+    div{
+      text-align: center;
+    }
+    table{
+      width:35%;
+      text-align: center;  
+      margin: auto; 
+      border:0.5px solid black; 
+      font-family:Microsoft JhengHei;
+    }
+    th{
+      color:white;
+      background-color: black;
+    }
+    td{
+      background-color: white;
+    }
+
+</style>
+
+<h1><br/><br/></h1>
+
+<body>
+
+<div>
+<table id="tableid"> 
+
+  <tr style="font-size:110%">
+    <th>BANNERMAN<br/></th>
+  </tr>
+
+  <tr>
+    <td style="font-size:120%" id="td1">
+      <br/><b>Checkin</b><br/><br/>
+    </td>
+  </tr>
+
+ <tr >
+    <td id="td2">
+    <p id="demo" style="font:italic;font-size: 90%"></p>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td style="background-color:lightblue">
+    <br/><button onclick="getLocation();mychange();this.style.visibility='hidden';Delete(this.parentNode.parentNode);">Click to Checkin</button><br/><br/>
+    <script>
+    var x=document.getElementById("demo");
+    function getLocation()
+    {
+      if (navigator.geolocation)
+      {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+      else{x.innerHTML="Geolocation is not supported by this browser.";}
+    }
+    function showPosition(position)
+    {
+      x.innerHTML="Well done!"+"<br/>Latitude: " + Math.round(position.coords.latitude*100000)/100000  + "&nbsp Longitude: " + Math.round(position.coords.longitude*100000)/100000 ;  
+    }
+    function Delete(theRow)
+    {
+      document.getElementById("tableid").removeChild(theRow);
+    } 
+    function mychange()
+    {
+     document.getElementById("td1").style.background="lightyellow";
+     document.getElementById("td2").style.background="lightpink";
+     document.bgcolor="ligntpink";
+    }
+  
+    </script>
+    </td>
+  </tr>
+  
+
+</table>
+</div>
+
+
+</body>
+</html>
